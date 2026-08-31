@@ -1,18 +1,30 @@
 import { Injectable } from '@nestjs/common';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
+import { connected } from 'process';
+import { Room } from './entities/room.entity';
 
 @Injectable()
 export class RoomsService {
+  private readonly rooms: Room [] = []
   create(createRoomDto: CreateRoomDto) {
-    return 'This action adds a new room';
+
+    const {code, buildingId, floor, type, capacity} = createRoomDto()}
+    const newRoom = new Room(createRoomDto);
+
+    object.assign(newRoom, createRoomDto);
+
+    this.rooms.push(newRoom);
+
+    return newRoom;
+
   }
 
   findAll() {
     return `This action returns all rooms`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} room`;
   }
 
