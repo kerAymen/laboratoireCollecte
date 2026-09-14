@@ -5,19 +5,19 @@ export class CreateRoomDto {
     description: 'Code du local',
     example: 'B-204',
   })
-  code: string;
+  code!: string;
   
    @ApiProperty({
     description: 'Identifiant du bâtiment',
     example: '550e8400-e29b-41d4-a716-446655440000',
   })
-  buildingId: string;
+  buildingId!: string;
 
   @ApiProperty({
     description: 'Étage du local',
     example: 2,
   })
-  floor: number;
+  floor!: number;
 
   type?: string;
   capacity?: number;
